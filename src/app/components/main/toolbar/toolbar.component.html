@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button matTooltip="Menu" (click)="menuButtonClicked()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Hotel</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+  <button mat-menu-item routerLink="#">
+    <mat-icon>person</mat-icon><span>My Account</span>
+  </button>
+  <button mat-menu-item routerLink="#">
+    <mat-icon>settings</mat-icon><span>Settings</span>
+  </button>
+  <button mat-menu-item routerLink="#">
+    <mat-icon>help</mat-icon><span>Help</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item class="example-icon favorite-icon" aria-label="Logout" (click)="logout()">
+    <mat-icon>logout</mat-icon>Logout
+  </button>
+  
+</mat-menu>
