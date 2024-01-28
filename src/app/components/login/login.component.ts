@@ -1,46 +1,48 @@
+// login.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent { 
-  loginForm?: any;
-  dateNow: Date;
-  constructor(private fb: FormBuilder,
-    private authService : AuthService,
-    private router: Router,
-    private notification: NotificationService) {
-      this.dateNow = new Date();
-    }
+export class LoginComponent {
+  form: FormGroup = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+  });
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+  showSpinner: boolean = false;
+
+  constructor(private authservice: AuthService, private fb: FormBuilder, private router: Router) {}
+
+  login() {
+    // Set showSpinner to true to display the spinner
+    this.showSpinner = true;
+
+    let user = this.authservice.login(this.form.value.username, this.form.value.password);
+
+    console.log("Login started");
+
+    // Using RxJS timer to handle the 5-second delay
+    timer(5000).subscribe(() => {
+      // Reset the form and hide the spinner once login is complete
+      this.form.reset();
+      this.showSpinner = false;
+      console.log("Login stopped after 5 seconds");
+
+      if (!user) {
+        alert("Invalid username or password");
+      } else {
+        this.router.navigate(['/admin']);
+      }
     });
   }
-
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const username = this.loginForm.get('username').value;
-      const password = this.loginForm.get('password').value;
-
-       // Call the authentication service's login method
-       if (this.authService.login(username, password)) {
-        // Navigate to the ProductListComponent upon successful login
-        this.router.navigate(['/dashboard']);
-      } else {    
-        this.notification.error("ERROR", "Wrong Password or Username");
-        }
-
-    }
-  }
-  hide = true;
 }

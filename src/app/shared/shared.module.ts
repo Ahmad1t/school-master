@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -22,7 +23,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    TranslateModule  
+    TranslateModule,
+    MatProgressSpinnerModule
    ],
 })
 export class SharedModule { }

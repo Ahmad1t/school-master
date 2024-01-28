@@ -17,13 +17,13 @@ import { DateComponent } from './components/date/date.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { MultilingualComponent } from './multilingual/multilingual.component';
 import { TranslatePipe } from './core/pipes/translate.pipe'; 
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatStepperModule} from '@angular/material/stepper';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-
+import { SpinnerComponent } from './components/spinner/spinner.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -31,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
+    SpinnerComponent,
     DashboardComponent,
     SidebarComponent,
     ToolbarComponent,
@@ -53,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         timeOut: 10000
       }
     ),
+    MatProgressSpinnerModule,
     MatStepperModule,
     HttpClientModule,
     TranslateModule.forRoot({

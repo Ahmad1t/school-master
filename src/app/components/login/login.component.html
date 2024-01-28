@@ -1,26 +1,10 @@
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-6">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <div class="input-group">
-            <input matInput [type]="hide ? 'password' : 'text'" class="form-control" id="password" formControlName="password" placeholder="Password">
-            <div class="input-group-append">
-              <span class="input-group-text">
-                <mat-icon (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" style="margin-top: 6px;">Login</button>
-      </form>
-    </div>
-    <p>password:133</p>
-  </div>
+<!-- login.component.html -->
+<div id="container" [formGroup]="form">
+  <h1>Login</h1>
+  <input type="text" formControlName="username" placeholder="Username">
+  <input type="password" formControlName="password" placeholder="Password">
+  <button (click)="login()" [disabled]="!form.valid">Login</button>
+
+  <!-- Use the app-spinner component with the [showSpinner] input -->
+  <app-spinner [showSpinner]="showSpinner"></app-spinner>
 </div>

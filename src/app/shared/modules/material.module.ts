@@ -20,7 +20,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [
@@ -46,7 +46,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatPaginatorModule,
     MatMenuModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
     
   ]
 })
