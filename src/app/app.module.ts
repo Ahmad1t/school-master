@@ -18,6 +18,7 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { MultilingualComponent } from './multilingual/multilingual.component';
 import { TranslatePipe } from './core/pipes/translate.pipe'; 
 
+import {MatStepperModule} from '@angular/material/stepper';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         timeOut: 10000
       }
     ),
+    MatStepperModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

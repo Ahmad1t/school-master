@@ -1,14 +1,3 @@
-<p>Enter Firstname and Lastname:</p>
-<table class="example-full-width" cellspacing="0"><tr>
-  <td><mat-form-field class="example-full-width">
-    <mat-label>First name</mat-label>
-    <input matInput>
-  </mat-form-field></td>
-  <td><mat-form-field class="example-full-width">
-    <mat-label>Last Name</mat-label>
-    <input matInput>
-  </mat-form-field></td>
-</tr></table>
 <p>Enter phone number:</p>
 <form class="example-form">
   <mat-form-field class="example-full-width">
@@ -18,15 +7,75 @@
     <mat-icon matSuffix>mode_edit</mat-icon>
   </mat-form-field>
 </form>
-<h1>Pick a Date:</h1>
-<mat-form-field>
-    <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date">
-      <input matEndDate placeholder="End date">
-    </mat-date-range-input>
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field> 
+
   
+<mat-stepper linear #stepper>
+  <mat-step>
+    <form >
+      <ng-template matStepLabel>Fill out your Name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step>
+    <form >
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+ <!---->
+   <mat-step>
+    <form >
+      <ng-template matStepLabel>Where you want to go</ng-template>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="Ex.London" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+   <!---->
+   <mat-step>
+    <ng-template matStepLabel>Date</ng-template>
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>   
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+   </mat-step>
+   <!---->
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
