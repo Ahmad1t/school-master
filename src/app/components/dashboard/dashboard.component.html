@@ -1,1 +1,24 @@
-<h1>WELCOME TO THE HOTEL</h1>
+<div class="dropdown">
+    <select class="form-select" (change)="changeLang($event)">
+      <option [selected]="lang==='en'" value="en">English</option>
+      <option [selected]="lang==='fr'" value="fr">French</option>
+      <option [selected]="lang==='de-DE'" value="de">German</option>
+    </select>
+  </div>
+  
+  <p>Welcome</p>
+  <!--
+  <h1>WELCOME TO THE HOTEL</h1>
+  <span class="form-inline">
+    <select class="form-control"
+            #selectedLang
+            (change)="switchLanguage(selectedLang.value)">
+      <option *ngFor="let language of translateService.getLangs()"
+              [value]="language"
+              [selected]="language === translateService.currentLang">
+        {{ language }}
+      </option>
+    </select>
+  </span>
+  -->
+  

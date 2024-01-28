@@ -1,4 +1,24 @@
-<h1>Pick a Date</h1>
+<p>Enter Firstname and Lastname:</p>
+<table class="example-full-width" cellspacing="0"><tr>
+  <td><mat-form-field class="example-full-width">
+    <mat-label>First name</mat-label>
+    <input matInput>
+  </mat-form-field></td>
+  <td><mat-form-field class="example-full-width">
+    <mat-label>Last Name</mat-label>
+    <input matInput>
+  </mat-form-field></td>
+</tr></table>
+<p>Enter phone number:</p>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Telephone</mat-label>
+    <span matPrefix>+961 &nbsp;</span>
+    <input type="tel" matInput placeholder="55-555-123">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+</form>
+<h1>Pick a Date:</h1>
 <mat-form-field>
     <mat-label>Enter a date range</mat-label>
     <mat-date-range-input [rangePicker]="picker">
@@ -9,3 +29,4 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field> 
+  

@@ -4,11 +4,25 @@
   </button>
   <span>Hotel</span>
   <span class="example-spacer"></span>
+   <!--
+<div class="language-picker-area">
+  <div
+  class>Choose language</div>
+  <select class="language-picker">
 
+    <option value="en-US">English </option>
+      <option value="fr-FR">French </option>
+          <option value="de-DE"> German </option>
+      
+  </select>
+  </div>
+-->
   <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
     <mat-icon>account_circle</mat-icon>
   </button>
 </mat-toolbar>
+
+
 
 <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
   <button mat-menu-item routerLink="#">

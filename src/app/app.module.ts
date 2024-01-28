@@ -14,8 +14,18 @@ import { PersonDetailsComponent } from './components/person/person-details/perso
 import { AppRoutingModule } from './app-routing.module';
 import { PersonManagementComponent } from './components/person/person-management/person-management.component';
 import { DateComponent } from './components/date/date.component';
-import { MyaccountComponent } from './components/myaccount/myaccount.component'; 
+import { MyaccountComponent } from './components/myaccount/myaccount.component';
+import { MultilingualComponent } from './multilingual/multilingual.component';
+import { TranslatePipe } from './core/pipes/translate.pipe'; 
 
+
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +40,10 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
     PersonDetailsComponent,
     PersonManagementComponent,
     DateComponent,
-    MyaccountComponent
+    MyaccountComponent,
+    MultilingualComponent,
+    TranslatePipe
+    
   ],
   imports: [
     AppRoutingModule,
@@ -39,9 +52,17 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
         timeOut: 10000
       }
     ),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     SharedModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
