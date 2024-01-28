@@ -13,19 +13,22 @@ export class AppComponent {
 
   sidebarOpened: boolean = true;
   title: any;
- 
+
   constructor(
-    private authService: AuthService,private router: Router,public translate: TranslateService) {
-    
-    
-    }
-  
-  isLoggedIn(): boolean{
+    private authService: AuthService,
+    private router: Router,
+    public translate: TranslateService
+  ) {
+  }
+
+  isLoggedIn(): boolean {
     return this.authService.isAuthenticatedUser();
   }
-  menuButtonClicked(){
+
+  menuButtonClicked() {
     this.sidebarOpened = !this.sidebarOpened;
   }
+
   switchLang(lang: string) {
     this.translate.use(lang);
   }

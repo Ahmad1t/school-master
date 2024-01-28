@@ -19,11 +19,12 @@ import { MultilingualComponent } from './multilingual/multilingual.component';
 import { TranslatePipe } from './core/pipes/translate.pipe'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import { ThemeService } from './theme-toggle/theme.service';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DateComponent,
     MyaccountComponent,
     MultilingualComponent,
-    TranslatePipe
+    TranslatePipe,
+    ThemeToggleComponent
     
   ],
   imports: [

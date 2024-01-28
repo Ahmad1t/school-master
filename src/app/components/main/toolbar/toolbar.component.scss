@@ -1,4 +1,14 @@
-.example-spacer {
+/* toolbar.component.scss */
+.dark-theme {
+  background-color: #333;  // Adjust the dark theme background color as needed
+  color: #fff;  // Adjust the dark theme text color as needed
+
+  .example-spacer {
     flex: 1 1 auto;
   }
-  
+}
+
+/* Additional styles for the light theme if needed */
+.example-spacer {
+  flex: 1 1 auto;
+}
