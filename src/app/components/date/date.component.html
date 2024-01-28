@@ -1,14 +1,3 @@
-<p>Enter phone number:</p>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Telephone</mat-label>
-    <span matPrefix>+961 &nbsp;</span>
-    <input type="tel" matInput placeholder="55-555-123">
-    <mat-icon matSuffix>mode_edit</mat-icon>
-  </mat-form-field>
-</form>
-
-  
 <mat-stepper linear #stepper>
   <mat-step>
     <form >
@@ -51,6 +40,23 @@
       </div>
     </form>
   </mat-step>
+   <!---->
+   <mat-step>
+    <form class="example-form">
+      <ng-template matStepLabel>Enter Phonenumber</ng-template>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+961 &nbsp;</span>
+        <input type="tel" matInput placeholder="55-555-123">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+   </mat-step>
    <!---->
    <mat-step>
     <ng-template matStepLabel>Date</ng-template>
